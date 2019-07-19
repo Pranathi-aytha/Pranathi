@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+
+<title>Login</title>
+
+<script src="https://www.google.com/recaptcha/api.js"></script>
+
+<script type="text/javascript">
+
+     function validate() {
+
+         var username = document.getElementById("username").value;
+
+         var password = document.getElementById("password").value;
+
+         document.cookie="usercookie=username";
+
+         if (validateEmail(username)) {
+
+             if (password.length < 8) {
+
+                 alert("Password should be greater than or equal to 8 letters");
+
+                 return false;
+
+             }
+
+             else {
+
+                 window.location = "./Register.html";
+
+             }
+
+         }else{
+
+             alert("Please enter your mail id");
+
+             return false;
+
+         }
+
+         alert('Login successful');
+
+ 
+
+     }
+
+     function validateEmail(email) {
+
+         var re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+         return re.test(String(email).toLowerCase());
+
+     }
+
+</script>
+
+<style>
+
+body{
+
+position:fixed;
+
+top:20%;
+
+bottom:50%;
+
+left:50%;
+
+maargin-top:-100px;
+
+margin-left:-100px;
+
+background-color:powderblue;
+
+}
+
+</style>
+
+</head>
+
+<body>
+
+<form action="Main" method="post">
+
+<img src="https://cdn3.vectorstock.com/i/thumb-large/19/22/retro-train-vintage-emblem-vector-20521922.jpg" alt="Cinque Terre" width="230" height="200">
+
+  <div class="topleft"></div>
+
+<center>username<input id="username" name="username" type="email" placeholder="Enter user name" required="true"></center>
+
+<br>
+
+<center>password <input id="password" type="password" name="password" placeholder="Enter password" required="true"></center>
+
+<br>
+
+<div class="g-recaptcha" data-sitekey=" 6LeIxAcTAAAAAJcZVRqyHh71UMIEGNQ_MXjiZKhI"></div>
+
+<center><input id="login" type="button" value="Login" name="Login" onClick="validate();"></center>
+
+</form>
+
+</body>
+</html>
