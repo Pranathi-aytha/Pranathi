@@ -44,14 +44,13 @@ if (!isset($_POST['signup'])) {
     else if ($exists == 3) echo "<p>Email already exists!</p>";
     else {
         # insert data into mysql database
-        $sql = "INSERT  INTO 'usertable' (`username`, `email`,'password) 
-                VALUES ( '{$username}', '{$email}','{$password}')";
+        $sql = "INSERT INTO `usertable` (`id`, `email`, `username`, `password`) VALUES (NULL, '$email', '$username', '$password');";
 
         if ($conn->query($sql)) {
             //echo "New Record has id ".$mysqli->insert_id;
             echo "<p>Registred successfully!</p>";
         } else {
-            echo "<p>MySQL error no {$mysqli->errno} : {$mysqli->error}</p>";
+            echo "<p>MySQL error no {$conn->errno} : {$conn->error}</p>";
             exit();
         }
     }
