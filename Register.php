@@ -1,17 +1,40 @@
 <html>
 <head>
     <title>Registration</title>
+    <style>
+
+body{
+
+position:fixed;
+
+top:20%;
+
+bottom:50%;
+
+left:50%;
+
+margin-top:-100px;
+
+margin-left:-100px;
+
+background-color:powderblue;
+
+}
+
+</style>
 </head>
 <body>  
+
 <?php
 include "init.php";
 if (!isset($_POST['signup'])) {
 ?>  <!-- The HTML registration form -->
     <form action="<?=$_SERVER['PHP_SELF']?>" method="post">
-        Username: <input type="text" name="username" /><br />
-        Email: <input type="type" name="email" /><br />
-		Password: <input type="password" name="password" /><br >
-        <input type="submit" name="signup" value="Register" />
+        <center><img src="https://cdn3.vectorstock.com/i/thumb-large/19/22/retro-train-vintage-emblem-vector-20521922.jpg" alt="Cinque Terre" width="230" height="200"></center>
+       <center> Username: <input type="text" name="username" /><br /></center>
+       <center> Email: <input type="type" name="email" /><br /></center>
+	<center>	Password: <input type="password" name="password" /><br ></center>
+       <center> <input type="submit" name="signup" value="Register" /></center>
     </form>
 <?php
 } else {
