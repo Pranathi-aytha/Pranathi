@@ -16,12 +16,12 @@ if (!isset($_POST['signup'])) {
 <?php
 } else {
 ## connect mysql server
-                $result=mysqli_query($conn,$sql);
+    //             $result=mysqli_query($conn,$sql);
                 
-    if ($result->connect_errno) {
-        echo "<p>MySQL error no {$result->connect_errno} : {$result->connect_error}</p>";
-        exit();
-    }
+    // if ($result->connect_errno) {
+    //     echo "<p>MySQL error no {$result->connect_errno} : {$result->connect_error}</p>";
+    //     exit();
+    // }
 ## query database
     # prepare data for insertion
     $username   = $_POST['username'];
@@ -29,13 +29,13 @@ if (!isset($_POST['signup'])) {
 	$password   = $_POST['password'];
     # check if username and email exist else insert
     $exists = 0;
-    $result1 = $mysqli->query("SELECT username from users WHERE username = '{$username}' LIMIT 1");
+    $result1 = $conn->query("SELECT username from usertable WHERE username = '{$username}' LIMIT 1");
     if ($result1->num_rows == 1) {
         $exists = 1;
-        $result1 = $mysqli->query("SELECT email from users WHERE email = '{$email}' LIMIT 1");
+        $result1 = $conn->query("SELECT email from usertable WHERE email = '{$email}' LIMIT 1");
         if ($result1->num_rows == 1) $exists = 2;    
     } else {
-        $result1 = $mysqli->query("SELECT email from users WHERE email = '{$email}' LIMIT 1");
+        $result1 = $conn->query("SELECT email from usertable WHERE email = '{$email}' LIMIT 1");
         if ($result1->num_rows == 1) $exists = 3;
     }
 
@@ -44,10 +44,10 @@ if (!isset($_POST['signup'])) {
     else if ($exists == 3) echo "<p>Email already exists!</p>";
     else {
         # insert data into mysql database
-        $sql = "INSERT  INTO 'usertable' (`id`, `username`, `email`,'password) 
-                VALUES (NULL, '{$username}', '{$email}','{$password}')";
+        $sql = "INSERT  INTO 'usertable' (`username`, `email`,'password) 
+                VALUES ( '{$username}', '{$email}','{$password}')";
 
-        if ($mysqli->query($sql)) {
+        if ($conn->query($sql)) {
             //echo "New Record has id ".$mysqli->insert_id;
             echo "<p>Registred successfully!</p>";
         } else {
