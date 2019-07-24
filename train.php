@@ -65,15 +65,18 @@ $toname="";
 					echo "</tr>";
 				while ($row = mysqli_fetch_assoc($result)) { // Important line !!! Check summary get row on array ..
 
-					echo "<form action='/book' method=get><tr>";
+					echo "<tr>";
 						echo "<td>".$row['trainno']."</td>";
 						echo "<td>". $row['trainname']."</td>";
 						echo "<td>". $row['fromstn']."</td>";
 						echo "<td>".$row['tostn']."</td>";
 						echo "<td>".$row['arrival']."</td>";
 						echo "<td>".$row['departure']."</td>";
-						echo "<input type='hidden' name='train' value='".$row['trainno']."'>";
-						echo "<td><input type='submit' name='Book' value='Book'></td>";
+						echo "<form action='/book' method=get><tr>
+						<input type='hidden' name='train' value='".$row['trainno']."'>
+						<td><input type='submit' name='Book' value='Book'></td>
+						</form>
+						";
 					echo "</tr></form>";
 				    }
 
