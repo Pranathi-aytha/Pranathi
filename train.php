@@ -1,5 +1,5 @@
 <?php
-include "init1.php";
+include "init.php";
 $fromname="";
 $toname="";
 
@@ -39,6 +39,8 @@ $toname="";
 					<td style="border-top:0px;"><a class="btn btn-info" type="reset" value="Reset">Reset</a></td>
 				</tr>
 			</table>
+			
+			</form>
 			<?php
 
 				 if(isset($_POST['from']) && isset($_POST['to'])){
@@ -70,7 +72,7 @@ $toname="";
 						echo "<td>".$row['tostn']."</td>";
 						echo "<td>".$row['arrival']."</td>";
 						echo "<td>".$row['departure']."</td>";
-						echo "<td><input type='hidden' name='train' value='".$row['trainno']."'></td>";
+						echo "<input type='hidden' name='train' value='".$row['trainno']."'>";
 						echo "<td><input type='submit' name='Book' value='Book'></td>";
 					echo "</tr></form>";
 				    }
@@ -79,7 +81,6 @@ $toname="";
 				echo "</table>";
 				}
 			 ?>
-			</form>
 </center>
 
 </body>
