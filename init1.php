@@ -11,11 +11,11 @@ $reserve="CREATE TABLE IF NOT EXISTS 'reservation'(reserveid integer primary key
 $train="CREATE TABLE IF NOT EXISTS 'traindisplay'(trainid integer primary key auto_increment,trainno integer unique key,trainname varchar(100) unique key,fromstn varchar(100),tostn varchar(100),arrival varchar(100),departure varchar(100),amount integer);";
  }
 if (mysqli_query($conn,$sql)) {
-    $insert="insert into table values(1,'pranathi@gmail.com','pranathi','pranathi');";
-    mysqli_query($conn,$insert);
+     $insert="insert into usertable values(1,'pranathi@gmail.com','pranathi','pranathi');";
+    mysqli_query($conn,$insert);	   
 } 
 if(mysqli_query($conn,$train)){
-   $insert1="insert into table values(1,3245,'Simhadri','Visakapatnam','Nellore','21:35','5:00',1300);";
+   $insert1="insert into traindisplay values(1,3245,'Simhadri','Visakapatnam','Nellore','21:35','5:00',1300);";
  mysqli_query($conn,$insert1);
 }
 ?>
