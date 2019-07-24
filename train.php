@@ -1,5 +1,5 @@
 <?php
-include "init.php";
+include "init1.php";
 $fromname="";
 $toname="";
 
