@@ -72,7 +72,7 @@ $toname="";
 						echo "<td>".$row['tostn']."</td>";
 						echo "<td>".$row['arrival']."</td>";
 						echo "<td>".$row['departure']."</td>";
-						echo "<form action='/book' method=get><tr>
+						echo "<form action='/book' method=get>
 						<input type='hidden' name='train' value='".$row['trainno']."'>
 						<td><input type='submit' name='Book' value='Book'></td>
 						</form>
