@@ -79,23 +79,28 @@ body{
 		<?php
 include "init.php";
 $sql1= "SELECT amount FROM traindisplay";
-		$username=$_POST("name");
-
+if(isset($_POST['name'])){
+		$username=$_POST('name');
+}
+if(isset($_POST['eid'])){
 		$email=$_POST('eid');
-
-
+}
+if(isset($_POST['dot'])){
 		$dot=$_POST('dot');
-	
-
+}
+if(isset($_POST['dob'])){
 		$dob=$_POST('dob');
-	
-
+}
+if(isset($_POST['age'])){
 		$age=$_POST('age');
-	
-
+}
+if(isset($_POST['gnd'])){
 		$gender=$_POST('gnd');
-	$uid="SELECT id FROM usertable WHERE email=$_COOKIE["username"]";
-	echo $uid; 
+}
+	$uid="SELECT id FROM usertable WHERE email=$_COOKIE[username]";
+	$result = mysqli_query($conn, $uid);
+	$row = mysqli_fetch_assoc($result)
+	echo $row['id']; 
 $sql = "INSERT INTO `reservation` (`id`,'name','age','gender' `remail`, `dot`, `dob`,'amount') VALUES (NULL,'$username','$age','$gender','$email','$dot','$dob','$sql1');";
         if ($conn->query($sql)) {
             //echo "New Record has id ".$mysqli->insert_id;
