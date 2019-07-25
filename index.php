@@ -1,5 +1,5 @@
 <?php
-// include "init.php";
+include "init.php";
 $eerr="";
 $perr="";
 $cerr="";
@@ -15,11 +15,9 @@ $succ="";
                 $result=mysqli_query($conn,$sql);
                 $data=mysqli_fetch_assoc($result);
                 if($data['total']=='1'){
-
                     setcookie("username", $email, time() + (86400 * 30), "/"); // 86400 = 1 day
                     header('Location: home.php');
                 }else{
-
                     $succ="<center><p>Invalid username or Password</p></center>";
                 }
             }else {
@@ -32,6 +30,9 @@ $succ="";
         $cerr="<center><p class='error'>Please verift the captcha</p></center>";
    }
 }
+if(isset($_COOKIE["username"])) {
+ echo "Value is: " . $_COOKIE["username"];
+}
 ?>
 
 <!DOCTYPE html>
@@ -40,33 +41,23 @@ $succ="";
 
 <head>
 <script src="https://www.google.com/recaptcha/api.js"></script>
-<style type="text/css">
-    .error{
-        color: :'red';
-    }
-</style>
 <title>Login</title>
 
 <style>
-
 body{
-
 position:fixed;
-
 top:20%;
-
 bottom:50%;
-
-left:50%;
-
+left:45%;
 maargin-top:-100px;
-
 margin-left:-100px;
-
-background-color:powderblue;
-
+background-image:url('images/trainmage.jpg');
+background-repeat:no-repeat;
+ background-size: cover;
 }
-
+.g-recaptcha{
+position:center;
+}
 </style>
 
 </head>
@@ -75,7 +66,7 @@ background-color:powderblue;
 
 <form method="post" action="<?php echo $_SERVER['PHP_SELF'] ?>">
 
-<center><img src="https://cdn3.vectorstock.com/i/thumb-large/19/22/retro-train-vintage-emblem-vector-20521922.jpg" alt="Cinque Terre" width="230" height="200"></center>
+<center><img src="images/loginpage.jpg" alt="Cinque Terre" width="230" height="200"></center>
 
   <div class="topleft"></div>
 
