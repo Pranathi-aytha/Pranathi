@@ -7,7 +7,7 @@ $conn=mysqli_connect($server_name,$mysql_user,$pass,$db_name);
 if($conn){
 $sql="CREATE TABLE IF NOT EXISTS usertable(id integer primary key auto_increment,email varchar(100) unique key,username text,password text);";
 $train="CREATE TABLE IF NOT EXISTS traindisplay(trainid integer primary key auto_increment,trainno integer unique key,trainname varchar(100) unique key,fromstn varchar(100),tostn varchar(100),arrival varchar(100),departure varchar(100),amount integer);";
-$reserve="CREATE TABLE IF NOT EXISTS 'reservation'(reserveid integer primary key auto_increment,id integer,trainid integer,name varchar(100),age integer,gender varchar(100),remail varchar(100),dot date,dob date,amount integer,FOREIGN KEY (id) REFERENCES usertable(id),FOREIGN KEY (trainid) REFERENCES traindisplay(trainid));";
+$reserve="CREATE TABLE IF NOT EXISTS reservation(reserveid integer primary key auto_increment,id integer,trainid integer,name varchar(100),age integer,gender varchar(100),dot date,dob date,FOREIGN KEY (id) REFERENCES usertable(id),FOREIGN KEY (trainid) REFERENCES traindisplay(trainid));";
     if (mysqli_query($conn,$sql)) {
          $insert="insert into usertable values(1,'pranathi@gmail.com','pranathi','pranathi');";
         mysqli_query($conn,$insert);	   
@@ -31,6 +31,6 @@ $reserve="CREATE TABLE IF NOT EXISTS 'reservation'(reserveid integer primary key
         echo "fail train";
     }
 if (mysqli_query($conn,$reserve)) {
-    }
+}
 }
 ?>

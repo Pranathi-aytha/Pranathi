@@ -1,5 +1,4 @@
 <!DOCTYPE html>
-
 <html>
 <head>
 <meta charset="ISO-8859-1">
@@ -18,13 +17,12 @@ background-color:white;
 <center><img src="https://cdn.dribbble.com/users/48692/screenshots/2400016/spokaneempire-partial.png" alt="train" height="250" width="250"></center>
 <br>
 <center>
-<button type="button"  style=" background-color:#WHITE; height: 50px; width: 120px">view tickets</button> 
+<input type="button"  style=" background-color:#WHITE; height: 50px; width: 120px" name="Viewticket" value="View Ticket" onClick="document.location.href='./upcoming.php'"/>
 <br>
-<button type="button"  style=" background-color:#WHITE; height: 50px; width: 120px">Book tickets</button>
+<input type="button"  style=" background-color:#WHITE; height: 50px; width: 120px" name="book" value="Book Ticket" onClick="document.location.href='./train.php'"/>
 <br>
-<button type="button"  style=" background-color:#WHITE; height: 50px; width: 120px">changepassword</button>
+<input type="button"  style=" background-color:#WHITE; height: 50px; width: 120px" name="changepwd" value="Change Password" onClick="document.location.href='./changepwd.php'"/>
 <br>
-<button type="button" style=" background-color:#WHITE; height: 50px; width: 120px">logout</button>
-</center>
+<input type="button" style=" background-color:#WHITE; height: 50px; width: 120px" name="logout" value="LogOut" onClick="document.location.href='./logout.php'"/>
 </body>
 </html>

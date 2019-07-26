@@ -1,13 +1,21 @@
 <?php
-include "init1.php";
+include "init.php";
 $fromname="";
 $toname="";
-
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-
+<style>
+body{
+  background-image: url("images/trainmage.jpg");
+  /* Center and scale the image nicely */
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  position: relative;
+}
+</style>
 </head>
 <body>
 	<div >
@@ -36,13 +44,11 @@ $toname="";
 					<td id="xbox" style="border-top:0px;"><label> To </label></td>
 					<td style="border-top:0px;"><input id="xbox1" type="text" name="to" class="input-block-level" ></td>
 					<td style="border-top:0px;"><input  type="submit" value="Find" name="find"> </td>
-					<td style="border-top:0px;"><a class="btn btn-info" type="reset" value="Reset">Reset</a></td>
+				
 				</tr>
 			</table>
-			
 			</form>
 			<?php
-
 				 if(isset($_POST['from']) && isset($_POST['to'])){
 					$fromname= $_POST['from'];
 					$toname= $_POST['to'];
@@ -61,10 +67,8 @@ $toname="";
 						echo "<th>To Station</th>";
 						echo "<th>Arrival</th>";
 						echo "<th>Departure</th>";
-						echo "<th>Book</th>";
 					echo "</tr>";
 				while ($row = mysqli_fetch_assoc($result)) { // Important line !!! Check summary get row on array ..
-
 					echo "<tr>";
 						echo "<td>".$row['trainno']."</td>";
 						echo "<td>". $row['trainname']."</td>";
@@ -72,18 +76,18 @@ $toname="";
 						echo "<td>".$row['tostn']."</td>";
 						echo "<td>".$row['arrival']."</td>";
 						echo "<td>".$row['departure']."</td>";
-						echo "<form action='/book' method=get>
-						<input type='hidden' name='train' value='".$row['trainno']."'>
-						<td><input type='submit' name='Book' value='Book'></td>
-						</form>
-						";
-					echo "</tr></form>";
+						echo "<form action='./book.php' method=post><input type='hidden' name='train' value='".$row['trainid']."'>";
+						echo "<td><input type='submit' value='Book' ></td>";
+					echo "</form></tr>";
 				    }
-
+					
 				}
 				echo "</table>";
 				}
+				
 			 ?>
+			 
+
 </center>
 
 </body>
