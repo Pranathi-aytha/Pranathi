@@ -9,11 +9,14 @@ if (isset($_POST['previous']) || isset($_POST['upcmng'])){
             $id=$row['id'];
 
 if (isset($_POST['previous'])){
-$sql2="SELECT * FROM reservation WHERE id='$id' ";
+	
+	//idokkate change renditiki
+$sql2="SELECT * FROM reservation WHERE id='$id' and dot<'".date("Y-m-d")."';";
 }
 
 if (isset($_POST['upcmng'])){
-$sql2="SELECT * FROM reservation WHERE id='$id' ;";
+	//idokkate change renditiki
+$sql2="SELECT * FROM reservation WHERE id='$id'  and dot>'".date("Y-m-d")."';";
 	}
     	$result2=mysqli_query($conn,$sql2);
                     echo "<br>";
